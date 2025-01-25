@@ -41,4 +41,10 @@ sudo chown -R 1030 /jfrog/
 
 docker run --name artifactory -d -p 8081:8081 -p 8082:8082 -v
 
+wget -O jfrog-deb-installer.tar.gz "https://releases.jfrog.io/artifactory/jfrog-prox/org/artifactory/pro/deb/jfrog-platform-trial-prox/[RELEASE]/jfrog-platform-trial-prox-[RELEASE]-deb.tar.gz"
+tar -xvzf jfrog-deb-installer.tar.gz
+cd jfrog-platform-trial-pro*
+sudo ./install.sh
+sudo systemctl start artifactory.service
+
 /jfrog/artifactory:/var/opt/jfrog/artifactory docker.bintray.io/jfrog/artifactory-oss:latest
